@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @contig.name %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @contig.length %>
+</p>
+
+<p>
+  <strong>Sequence:</strong>
+  <%= @contig.sequence %>
+</p>
+
+<%= link_to 'Edit', edit_contig_path(@contig) %> |
+<%= link_to 'Back', contigs_path %>

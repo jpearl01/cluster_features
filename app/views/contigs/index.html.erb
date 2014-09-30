@@ -1,0 +1,31 @@
+<h1>Listing contigs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Length</th>
+      <th>Sequence</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contigs.each do |contig| %>
+      <tr>
+        <td><%= contig.name %></td>
+        <td><%= contig.length %></td>
+        <td><%= contig.sequence %></td>
+        <td><%= link_to 'Show', contig %></td>
+        <td><%= link_to 'Edit', edit_contig_path(contig) %></td>
+        <td><%= link_to 'Destroy', contig, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Contig', new_contig_path %>

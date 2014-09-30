@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @feature.name %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @feature.length %>
+</p>
+
+<p>
+  <strong>Sequence:</strong>
+  <%= @feature.sequence %>
+</p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @feature.start %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @feature.end %>
+</p>
+
+<p>
+  <strong>Annotation:</strong>
+  <%= @feature.annotation %>
+</p>
+
+<%= link_to 'Edit', edit_feature_path(@feature) %> |
+<%= link_to 'Back', features_path %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @strain.name %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @strain.length %>
+</p>
+
+<p>
+  <strong>Contig num:</strong>
+  <%= @strain.contig_num %>
+</p>
+
+<p>
+  <strong>Genus:</strong>
+  <%= @strain.genus %>
+</p>
+
+<p>
+  <strong>Species:</strong>
+  <%= @strain.species %>
+</p>
+
+<%= link_to 'Edit', edit_strain_path(@strain) %> |
+<%= link_to 'Back', strains_path %>
