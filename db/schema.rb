@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140930210543) do
+ActiveRecord::Schema.define(version: 20141001202245) do
 
   create_table "contigs", force: true do |t|
     t.string   "name"
@@ -19,7 +19,10 @@ ActiveRecord::Schema.define(version: 20140930210543) do
     t.string   "sequence"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "strain_id"
   end
+
+  add_index "contigs", ["strain_id"], name: "index_contigs_on_strain_id", using: :btree
 
   create_table "features", force: true do |t|
     t.string   "name"
@@ -30,7 +33,10 @@ ActiveRecord::Schema.define(version: 20140930210543) do
     t.string   "annotation"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "contig_id"
   end
+
+  add_index "features", ["contig_id"], name: "index_features_on_contig_id", using: :btree
 
   create_table "strains", force: true do |t|
     t.string   "name"
