@@ -61,6 +61,12 @@ class StrainsController < ApplicationController
     end
   end
 
+  def import
+    Strain.import(params[:file])
+    redirect_to root_url, notice: "Strain imported."
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_strain

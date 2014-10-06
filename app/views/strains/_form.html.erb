@@ -37,7 +37,7 @@
 <% end %>
 <h2>Import Strain</h2>
 
-<%= form_tag import_strain_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
+<%= form_for @strain, url: {action: "import"} do |f| %>
+  <%= f.file_field :file %>
+  <%= f.submit "Import Strain" %>
 <% end %>
