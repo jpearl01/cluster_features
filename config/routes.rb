@@ -3,7 +3,9 @@ ClusterFeatures::Application.routes.draw do
 
   resources :contigs
 
-  resources :strains
+  resources :strains do 
+    collection {post :import}
+  end
   root 'strains#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

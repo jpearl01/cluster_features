@@ -62,8 +62,14 @@ class StrainsController < ApplicationController
   end
 
   def import
-    Strain.import(params[:file])
-    redirect_to root_url, notice: "Strain imported."
+    @strain = Strain.new(strain_params)
+    respond_to do |format|
+      if @strain.import(params[:strain][:file])
+        format.html { redirect_to @strain, notice: 'Strain was successfully updated.' }
+      else
+        format.json { render json: @strain.errors, status: :unprocessable_entity }        
+      end
+    end
   end
 
 
@@ -78,3 +84,4 @@ class StrainsController < ApplicationController
       params.require(:strain).permit(:name, :length, :contig_num, :genus, :species)
     end
 end
+

@@ -4,15 +4,19 @@ class Strain < ActiveRecord::Base
 	has_many :contigs, dependent: :destroy
 	has_many :features, through: :contigs
 
-	def self.import(file)
-		strain = new
-		Bio::FlatFile.auto(ARGF) do |ff|
+	def import(file)
+		self.length = 0
+		self.contig_num = 0
+		self.name = 'default'
+		self.species = 'giganticus'
+		self.genus   = 'Bacterius'
+		Bio::FlatFile.auto(file.path) do |ff|
 			ff.each do |entry|
-        strain.length += entry.seq_len
-        strain.contigs += 1
+        self.length += entry.seq_len
+        self.contig_num += 1
       end
     end
-    strain.save!
+    self.save!
 	end
 end
 
