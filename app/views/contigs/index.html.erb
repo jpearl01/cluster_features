@@ -17,7 +17,7 @@
       <tr>
         <td><%= contig.name %></td>
         <td><%= contig.length %></td>
-        <td><%= contig.sequence %></td>
+        <td><%=h truncate(contig.sequence, length: 80)  %></td>
         <td><%= link_to 'Show', contig %></td>
         <td><%= link_to 'Edit', edit_contig_path(contig) %></td>
         <td><%= link_to 'Destroy', contig, method: :delete, data: { confirm: 'Are you sure?' } %></td>

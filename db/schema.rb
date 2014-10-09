@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141001202245) do
+ActiveRecord::Schema.define(version: 20141008193227) do
 
   create_table "contigs", force: true do |t|
     t.string   "name"
     t.integer  "length"
-    t.string   "sequence"
+    t.text     "sequence",   limit: 2147483647
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "strain_id"
@@ -27,13 +27,15 @@ ActiveRecord::Schema.define(version: 20141001202245) do
   create_table "features", force: true do |t|
     t.string   "name"
     t.integer  "length"
-    t.string   "sequence"
+    t.text     "sequence",   limit: 2147483647
     t.integer  "start"
     t.integer  "end"
     t.string   "annotation"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "contig_id"
+    t.string   "f_type"
+    t.integer  "strand"
   end
 
   add_index "features", ["contig_id"], name: "index_features_on_contig_id", using: :btree

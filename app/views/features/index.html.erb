@@ -18,9 +18,9 @@
   <tbody>
     <% @features.each do |feature| %>
       <tr>
-        <td><%= feature.name %></td>
+        <td><%= feature.f_type %></td>
         <td><%= feature.length %></td>
-        <td><%= feature.sequence %></td>
+        <td><%=h truncate(feature.sequence, length: 80) %></td>
         <td><%= feature.start %></td>
         <td><%= feature.end %></td>
         <td><%= feature.annotation %></td>
