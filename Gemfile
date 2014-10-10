@@ -33,6 +33,7 @@ group :doc do
 end
 
 gem 'bio'
+gem 'bootstrap-sass', '~> 3.2.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

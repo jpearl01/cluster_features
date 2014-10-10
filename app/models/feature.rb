@@ -3,7 +3,7 @@ class Feature < ActiveRecord::Base
 
 	def import(feat_obj, c_id)
 		self.contig_id = c_id
-		self.type      = feat_obj.feature
+		self.f_type      = feat_obj.feature
 		#It should be noted all this stuff on locations will only work on genes w/o intron/exons
 		self.strand    = feat_obj.locations.locations[0].strand
 		self.start     = feat_obj.locations.locations[0].from
