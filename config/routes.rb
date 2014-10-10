@@ -1,4 +1,5 @@
 ClusterFeatures::Application.routes.draw do
+  devise_for :users
   resources :features
 
   resources :contigs

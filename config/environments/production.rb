@@ -77,4 +77,6 @@ ClusterFeatures::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+  #Note, I'm going to need to change this when sending to a production environment
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end

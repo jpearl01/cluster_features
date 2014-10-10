@@ -34,6 +34,7 @@ end
 
 gem 'bio'
 gem 'bootstrap-sass', '~> 3.2.0'
+gem 'devise', '~> 3.1.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
