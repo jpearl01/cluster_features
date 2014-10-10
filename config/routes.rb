@@ -1,8 +1,8 @@
 ClusterFeatures::Application.routes.draw do
   devise_for :users
   resources :features
-
   resources :contigs
+  get "home" => "home"
 
   resources :strains do 
     collection {post :import}
