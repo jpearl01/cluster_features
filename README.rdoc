@@ -1,28 +1,25 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
+Welcome to the strain viewer app!  This software is currently in alpha, so don't expect to much.  The basic idea is that the app will all you to create projects that contain strains of bacteria.  The bacteria can be created manually(not recommended) or allow you to import strains from any format currently supported by Bioruby.  
 Things you may want to cover:
 
-* Ruby version
+* Ruby version:
+-ruby 2.1.0p0 (2013-12-25 revision 44422) [x86_64-linux]
 
-* System dependencies
+* System dependencies:
+-You should be able to install all dependencies by running the "bundle install" command.  I highly recommend using RVM or some other ruby version manager to separate from the system install of Ruby.
 
-* Configuration
+* Configuration:
+-No real configuration just yet.  You will need to have a mysql server up and running.  You can change the mysql config in cluster_features/config/database.yml
 
 * Database creation
+-Standard rails app database creation, locally you'll need to run "rake db:create".  After pulling down the latest version you'll also need to run "rake db:migrate" to update the databse incase anything has changed. 
 
 * Database initialization
+-"rake db:create"
 
-* How to run the test suite
+* How to run the test suite:
+-Currently no tests :-(
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Deployment instructions:
+-Standard Rails app deployment... more on this later
