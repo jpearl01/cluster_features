@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    if Project.exists? user_id: current_user.id
+    if Project.all.count != 0
       @projects = Project.all
     else
       redirect_to action: 'new'
