@@ -1,5 +1,7 @@
 ClusterFeatures::Application.routes.draw do
-  devise_for :users
+  resources :projects
+
+  devise_for :users, :controllers => { registrations: 'registrations' }
   resources :features
   resources :contigs
   get "home" => "home"
@@ -7,7 +9,8 @@ ClusterFeatures::Application.routes.draw do
   resources :strains do 
     collection {post :import}
   end
-  root 'strains#index'
+  root 'home#home'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

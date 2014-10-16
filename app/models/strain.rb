@@ -1,6 +1,7 @@
 require 'bio'
 
 class Strain < ActiveRecord::Base
+	belongs_to :project
 	has_many :contigs, dependent: :destroy
 	has_many :features, through: :contigs
 

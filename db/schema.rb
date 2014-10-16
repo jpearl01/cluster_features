@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141010212555) do
+ActiveRecord::Schema.define(version: 20141016214633) do
 
   create_table "contigs", force: true do |t|
     t.string   "name"
@@ -40,6 +40,17 @@ ActiveRecord::Schema.define(version: 20141010212555) do
 
   add_index "features", ["contig_id"], name: "index_features_on_contig_id", using: :btree
 
+  create_table "projects", force: true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.integer  "num_strains"
+    t.string   "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree
+
   create_table "strains", force: true do |t|
     t.string   "name"
     t.integer  "length"
@@ -48,7 +59,10 @@ ActiveRecord::Schema.define(version: 20141010212555) do
     t.string   "species"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "project_id"
   end
+
+  add_index "strains", ["project_id"], name: "index_strains_on_project_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -63,6 +77,8 @@ ActiveRecord::Schema.define(version: 20141010212555) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
