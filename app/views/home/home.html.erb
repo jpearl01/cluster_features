@@ -1,6 +1,6 @@
 
 <div class="jumbotron center">
-	<h2>Hi <%= current_user.first_name %>, Welcome to the Strain Viewer App</h2>
+	<h2> <% unless current_user.nil? %>Hi <%= current_user.first_name  %>,<%end%> Welcome to the Strain Viewer App</h2>
 	<% if user_signed_in? %>
 	  <p>Now logged in</p>
 	  <%= link_to "Create New Project", new_project_path, class: "btn btn-default btn-lg" %>
