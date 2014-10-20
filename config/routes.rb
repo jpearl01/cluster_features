@@ -1,7 +1,11 @@
 ClusterFeatures::Application.routes.draw do
-  resources :projects
-
+  
   devise_for :users, :controllers => { registrations: 'registrations' }
+  
+  resources :users do 
+    resources :projects
+  end
+
   resources :features
   resources :contigs
   get "home" => "home"

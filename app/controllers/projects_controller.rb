@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     if Project.all.count != 0
-      @projects = Project.all
+      @projects = current_user.projects.all
     else
       redirect_to action: 'new'
     end
@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
-    @project = Project.new
+    @project = current_user.projects.new
   end
 
   # GET /projects/1/edit
@@ -28,12 +28,12 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    @project = Project.new(project_params)
+    @project = current_user.projects.new(project_params)
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @project }
+        format.html { redirect_to [current_user, @project], notice: 'Project was successfully created.' }
+        format.json { render action: 'show', status: :created, location: [current_user, @project] }
       else
         format.html { render action: 'new' }
         format.json { render json: @project.errors, status: :unprocessable_entity }
@@ -68,7 +68,7 @@ class ProjectsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
-      @project = Project.find(params[:id])
+      @project = current_user.project.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
