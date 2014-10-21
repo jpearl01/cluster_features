@@ -17,7 +17,7 @@
       <!-- add  class="active" somehow to indicate current page -->
       <% if user_signed_in? %>
         <li><%= link_to "Projects", user_projects_path(current_user) %></li>
-        <li><%= link_to "Strains", strains_path %></li>
+        <li><%= link_to "Strains", projects_strains_path %></li>
         <li><%= link_to "Contigs", contigs_path %></li>
         <li><%= link_to "Features", features_path %></li>
         <% end %>

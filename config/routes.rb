@@ -1,19 +1,22 @@
 ClusterFeatures::Application.routes.draw do
   
+  root 'home#home'
+  get "home" => "home"
+
   devise_for :users, :controllers => { registrations: 'registrations' }
   
   resources :users do 
-    resources :projects
+    resources :projects do
+      resources :strains, shallow: true
+    end
   end
-
-  resources :features
-  resources :contigs
-  get "home" => "home"
 
   resources :strains do 
     collection {post :import}
   end
-  root 'home#home'
+
+  resources :contigs
+  resources :features
 
 
   # The priority is based upon order of creation: first created -> highest priority.
