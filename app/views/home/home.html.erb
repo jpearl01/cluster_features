@@ -3,9 +3,9 @@
 	<h2> <% unless current_user.nil? %>Hi <%= current_user.first_name  %>,<%end%> Welcome to the Strain Viewer App</h2>
 	<% if user_signed_in? %>
 	  <p>Now logged in</p>
-	  <%= link_to "Create New Project", new_user_project_path, class: "btn btn-default btn-lg" %>
+	  <%= link_to "Create New Project", new_user_project_path(current_user), class: "btn btn-default btn-lg" %>
 	  <% if current_user.projects.count != 0 %>
-	    <%= link_to "View Current Projects", user_projects_path, class: "btn btn-default btn-lg" %>
+	    <%= link_to "View Current Projects", user_projects_path(current_user), class: "btn btn-default btn-lg" %>
 	  <% end %>
 	<% else %>
 	  <p>

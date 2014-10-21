@@ -16,9 +16,9 @@
       <tr>
         <td><%= project.name %></td>
         <td><%= project.comment %></td>
-        <td><%= link_to 'Show', user_project %></td>
-        <td><%= link_to 'Edit', edit_user_project_path(project) %></td>
-        <td><%= link_to 'Destroy', user_project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', [current_user, project] %></td>
+        <td><%= link_to 'Edit', edit_user_project_path(current_user, project) %></td>
+        <td><%= link_to 'Destroy', [current_user, project], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
