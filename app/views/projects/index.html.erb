@@ -14,7 +14,7 @@
   <tbody>
     <% @projects.each do |project| %>
       <tr>
-        <td><%= project.name %></td>
+        <td><%= link_to project.name, project_strains_path(project) %></td>
         <td><%= project.comment %></td>
         <td><%= link_to 'Show', [current_user, project] %></td>
         <td><%= link_to 'Edit', edit_user_project_path(current_user, project) %></td>

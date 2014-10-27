@@ -3,4 +3,4 @@
 <%= render 'form' %>
 
 <%= link_to 'Show', @strain %> |
-<%= link_to 'Back', strains_path %>
+<%= link_to 'Back', project_strains_path(@strain.project_id) %>

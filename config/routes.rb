@@ -6,14 +6,16 @@ ClusterFeatures::Application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
   
   resources :users do 
-    resources :projects do
-      resources :strains, shallow: true
-    end
+    resources :projects
   end
 
-  resources :strains do 
-    collection {post :import}
+  resources :projects do
+      resources :strains, shallow: true do
+        collection {post :import}
+      end
   end
+
+#  resources :strains
 
   resources :contigs
   resources :features

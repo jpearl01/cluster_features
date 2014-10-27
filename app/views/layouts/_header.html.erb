@@ -17,10 +17,13 @@
       <!-- add  class="active" somehow to indicate current page -->
       <% if user_signed_in? %>
         <li><%= link_to "Projects", user_projects_path(current_user) %></li>
-          <% if @project %>
-          <li><%= link_to "Strains", user_project_strains_path(current_user, @project) %></li>
+          <% if @project.nil? || @project.strains.nil? || @project.strains.count < 1 %>
+          <% else %>
+            <li><%= link_to "Strains", project_strains_path(@project) %></li>
+<!-- Eh, I'm not sure a good way to display these things yet, but they are going to get in the way.
             <li><%= link_to "Contigs", contigs_path %></li>
             <li><%= link_to "Features", features_path %></li>
+-->
           <% end %>
         <% end %>
       </ul>
