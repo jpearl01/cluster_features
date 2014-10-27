@@ -1,10 +1,11 @@
 class ContigsController < ApplicationController
   before_action :set_contig, only: [:show, :edit, :update, :destroy]
+  before_action :get_strain, only: [:index, :new, :create, :import]
 
   # GET /contigs
   # GET /contigs.json
   def index
-    @contigs = Contig.all
+    @contigs = @strain.contigs
   end
 
   # GET /contigs/1
@@ -14,7 +15,7 @@ class ContigsController < ApplicationController
 
   # GET /contigs/new
   def new
-    @contig = Contig.new
+    @contig = @strain.contigs.new
   end
 
   # GET /contigs/1/edit
@@ -24,7 +25,7 @@ class ContigsController < ApplicationController
   # POST /contigs
   # POST /contigs.json
   def create
-    @contig = Contig.new(contig_params)
+    @contig = @strain.contigs.new(contig_params)
 
     respond_to do |format|
       if @contig.save
@@ -65,6 +66,10 @@ class ContigsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_contig
       @contig = Contig.find(params[:id])
+    end
+
+    def get_strain
+      @strain = Strain.find(params[:strain_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

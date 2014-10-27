@@ -1,6 +1,7 @@
 <h1>New strain</h1>
 
 <%= render 'form' %>
+
 <h2>Import Strain</h2>
 
 <%= form_for([@project, @strain], url: import_project_strains_path(@project, @strain)) do |f| %>

@@ -3,4 +3,4 @@
 <%= render 'form' %>
 
 <%= link_to 'Show', @contig %> |
-<%= link_to 'Back', contigs_path %>
+<%= link_to 'Back', strain_contigs_path(@contig.strain_id) %>

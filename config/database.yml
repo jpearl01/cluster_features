@@ -16,6 +16,7 @@ development:
   username: josh
   password: 'first class mail'
   socket: /var/lib/mysql/mysql.sock
+  reconnect: true
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -28,6 +29,7 @@ test:
   username: josh
   password: 'first class mail'
   socket: /var/lib/mysql/mysql.sock
+  reconnect: true
 
 production:
   adapter: mysql2
@@ -37,3 +39,4 @@ production:
   username: josh
   password: 'first class mail'
   socket: /var/lib/mysql/mysql.sock
+  reconnect: true

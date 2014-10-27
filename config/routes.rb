@@ -15,9 +15,11 @@ ClusterFeatures::Application.routes.draw do
       end
   end
 
-#  resources :strains
 
-  resources :contigs
+  resources :strains do
+    resources :contigs, shallow: true
+  end
+
   resources :features
 
 

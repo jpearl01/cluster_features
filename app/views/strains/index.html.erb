@@ -1,4 +1,4 @@
-<h1>Listing strains</h1>
+<h1>Listing strains in project <%= link_to @project.name, user_projects_path(current_user) %></h1>
 
 <table class="table table-striped table-condensed">
   <thead>
@@ -17,7 +17,7 @@
   <tbody>
     <% @strains.each do |strain| %>
       <tr>
-        <td><%= strain.name %></td>
+        <td><%= link_to strain.name, strain_contigs_path(strain) %></td>
         <td><%= strain.length %></td>
         <td><%= strain.contig_num %></td>
         <td><%= strain.genus %></td>

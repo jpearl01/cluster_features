@@ -23,3 +23,4 @@ Things you may want to cover:
 
 * Deployment instructions:
 -Standard Rails app deployment... more on this later
+-some issues: the mysql adapter doesn't like loading large files.  Basically it trips out if you try and import a record which is greater than 1mb.  To alter that you need to change the config file for mysql, which on Fedora 19 was /etc/my.cnf.  Which I changed so it had the 'max_allowed_packet=500M' line in it.
