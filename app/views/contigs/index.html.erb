@@ -15,7 +15,7 @@
   <tbody>
     <% @contigs.each do |contig| %>
       <tr>
-        <td><%= contig.name %></td>
+        <td><%= link_to contig.name, contig_features_path(contig) %></td>
         <td><%= contig.length %></td>
         <td><%=h truncate(contig.sequence, length: 80)  %></td>
         <td><%= link_to 'Show', contig %></td>

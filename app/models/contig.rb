@@ -13,7 +13,7 @@ class Contig < ActiveRecord::Base
 
 		bio_obj.features.each_entry do |feat|
 			next unless feat.feature != 'source'
-			f = Feature.new
+			f = self.features.new
 			f.import(feat, self.id)
 		end
 

@@ -1,10 +1,11 @@
 class FeaturesController < ApplicationController
   before_action :set_feature, only: [:show, :edit, :update, :destroy]
+  before_action :get_contig, only: [:index, :new, :create]
 
   # GET /features
   # GET /features.json
   def index
-    @features = Feature.all
+    @features = @contig.features
   end
 
   # GET /features/1
@@ -14,7 +15,7 @@ class FeaturesController < ApplicationController
 
   # GET /features/new
   def new
-    @feature = Feature.new
+    @feature = @contig.features.new
   end
 
   # GET /features/1/edit
@@ -24,7 +25,7 @@ class FeaturesController < ApplicationController
   # POST /features
   # POST /features.json
   def create
-    @feature = Feature.new(feature_params)
+    @feature = @contig.features.new(feature_params)
 
     respond_to do |format|
       if @feature.save
@@ -65,6 +66,10 @@ class FeaturesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_feature
       @feature = Feature.find(params[:id])
+    end
+
+    def get_contig
+      @contig = Contig.find(params[:contig_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

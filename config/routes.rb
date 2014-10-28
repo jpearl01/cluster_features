@@ -20,8 +20,9 @@ ClusterFeatures::Application.routes.draw do
     resources :contigs, shallow: true
   end
 
-  resources :features
-
+  resources :contigs do
+    resources :features, shallow: true
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
