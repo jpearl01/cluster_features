@@ -6,15 +6,23 @@
 </p>
 
 <p>
-  <strong>Length:</strong>
+  <strong>Nucleotide Length:</strong>
   <%= @feature.length %>
 </p>
 
 <p>
-  <strong>Sequence:</strong>
-  <%= @feature.sequence %>
+  <strong>Protein Sequence:</strong>
+  <textarea class="form-control" rows="3"><%= @feature.sequence %></textarea>
+  <%= link_to "Quick Blast", "http://www.ncbi.nlm.nih.gov/blast/Blast.cgi?QUERY=#{@feature.sequence}&DATABASE=nr&HITLIST_SIZE=10&FILTER=L&EXPECT=5&FORMAT_TYPE=HTML&PROGRAM=blastp&CLIENT=web&SERVICE=plain&NCBI_GI=on&PAGE=Nucleotides&CMD=Put", class: "btn btn-primary", target: "_blank" %>
 </p>
-
+<p>
+  <strong>Type:</strong>
+  <%= @feature.f_type %>
+</p>
+<p>
+  <strong>On Contig:</strong>
+  <%= Contig.find(@feature.contig_id).name%>
+</p>
 <p>
   <strong>Start:</strong>
   <%= @feature.start %>

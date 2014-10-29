@@ -12,10 +12,11 @@ class Strain < ActiveRecord::Base
 		self.species = 'species'
 		self.genus   = 'Missing'
 		self.save!
+		curr_count = 1
 		Bio::FlatFile.auto(file.path) do |ff|
 			ff.each do |entry|
 				ctg = Contig.new
-				ctg.import(entry, self.id)
+				ctg.import(entry, self.id, curr_count)
         self.length += entry.seq_len
         self.contig_num += 1
       end
