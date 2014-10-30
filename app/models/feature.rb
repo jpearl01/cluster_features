@@ -1,8 +1,7 @@
 class Feature < ActiveRecord::Base
 	belongs_to :contig
 
-	def import(feat_obj, c_id, curr_count)
-		self.name      = get_gene_name(c_id, curr_count)
+	def import(feat_obj, c_id)
 		self.contig_id = c_id
 		self.f_type    = feat_obj.feature
 		#It should be noted all this stuff on locations will only work on genes w/o intron/exons
@@ -25,4 +24,5 @@ protected
 	curr_count += 1
 	Strain.find(Contig.find(c_id).strain_id).name + "_" + curr_count.to_s
 	end
+
 end
