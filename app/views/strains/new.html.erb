@@ -1,12 +1,25 @@
-<h1>New strain</h1>
+<div class="panel panel-primary">
 
-<%= render 'form' %>
+  <div class="panel-heading">
+  	<h1 class="panel-title">New strain</h1>
+  </div>
 
-<h2>Import Strain</h2>
+  <div class="panel-body">
+  	<%= render 'form' %>
+  </div>
 
-<%= form_for([@project, @strain], url: import_project_strains_path(@project, @strain)) do |f| %>
-  <%= f.file_field :file %>
-  <%= f.submit "Import Strain" %>
-<% end %>
 
-<%= link_to 'Back', project_strains_path(@project) %>
+  	<h1 class="panel-title">Import Strain</h1>
+  </div>
+
+  <div class="panel-body">
+  	<%= form_for([@project, @strain], url: import_project_strains_path(@project, @strain)) do |f| %>
+  	  <%= f.file_field :file, class: "btn btn-success" %>
+  	  <%= f.submit "Import Strain", class: "btn btn-success" %>
+  	<% end %>
+	</div>
+
+  <div class="panel-footer">
+  	<%= link_to 'Back', project_strains_path(@project) %>
+  </div>
+</div>

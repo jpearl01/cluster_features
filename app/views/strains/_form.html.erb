@@ -1,37 +1,39 @@
-<%= form_for([@project, @strain]) do |f| %>
-  <% if @strain.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@strain.errors.count, "error") %> prohibited this strain from being saved:</h2>
+  <div class="panel-heading"> 
+    <%= form_for([@project, @strain]) do |f| %>
+      <% if @strain.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@strain.errors.count, "error") %> prohibited this strain from being saved:</h2>
 
-      <ul>
-      <% @strain.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <ul>
+          <% @strain.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :length %><br>
-    <%= f.number_field :length %>
-  </div>
-  <div class="field">
-    <%= f.label :contig_num %><br>
-    <%= f.number_field :contig_num %>
-  </div>
-  <div class="field">
-    <%= f.label :genus %><br>
-    <%= f.text_field :genus %>
-  </div>
-  <div class="field">
-    <%= f.label :species %><br>
-    <%= f.text_field :species %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+      <div class="field">
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <%= f.label :length %><br>
+        <%= f.number_field :length %>
+      </div>
+      <div class="field">
+        <%= f.label :contig_num %><br>
+        <%= f.number_field :contig_num %>
+      </div>
+      <div class="field">
+        <%= f.label :genus %><br>
+        <%= f.text_field :genus %>
+      </div>
+      <div class="field">
+        <%= f.label :species %><br>
+        <%= f.text_field :species %>
+      </div>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
+</div>
