@@ -1,5 +1,5 @@
   <div class="panel-heading"> 
-    <%= form_for([@project, @strain]) do |f| %>
+    <%= bootstrap_form_for([@project, @strain]) do |f| %>
       <% if @strain.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@strain.errors.count, "error") %> prohibited this strain from being saved:</h2>
@@ -12,28 +12,11 @@
       </div>
       <% end %>
 
-      <div class="field">
-        <%= f.label :name %><br>
-        <%= f.text_field :name %>
-      </div>
-      <div class="field">
-        <%= f.label :length %><br>
-        <%= f.number_field :length %>
-      </div>
-      <div class="field">
-        <%= f.label :contig_num %><br>
-        <%= f.number_field :contig_num %>
-      </div>
-      <div class="field">
-        <%= f.label :genus %><br>
-        <%= f.text_field :genus %>
-      </div>
-      <div class="field">
-        <%= f.label :species %><br>
-        <%= f.text_field :species %>
-      </div>
-      <div class="actions">
-        <%= f.submit %>
-      </div>
+      <%= f.text_field :name %>
+      <%= f.number_field :length %>
+      <%= f.number_field :contig_num %>
+      <%= f.text_field :genus %>
+      <%= f.text_field :species %>
+      <%= f.submit %>
     <% end %>
 </div>

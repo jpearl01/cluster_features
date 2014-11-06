@@ -9,12 +9,13 @@
   </div>
 
 
+  <div class="panel-heading">
   	<h1 class="panel-title">Import Strain</h1>
   </div>
 
   <div class="panel-body">
-  	<%= form_for([@project, @strain], url: import_project_strains_path(@project, @strain)) do |f| %>
-  	  <%= f.file_field :file, class: "btn btn-success" %>
+  	<%= bootstrap_form_for([@project, @strain], url: import_project_strains_path(@project, @strain)) do |f| %>
+  	  <%= f.file_field :file, hide_label: true, class: "btn btn-success" %>
   	  <%= f.submit "Import Strain", class: "btn btn-success" %>
   	<% end %>
 	</div>

@@ -17,14 +17,14 @@
   <tbody>
     <% @strains.each do |strain| %>
       <tr>
-        <td><%= link_to strain.name, strain_contigs_path(strain) %></td>
+        <td><%= link_to strain.name, strain  %></td>
         <td><%= strain.length %></td>
         <td><%= strain.contig_num %></td>
         <td><%= strain.genus %></td>
         <td><%= strain.species %></td>
-        <td><%= link_to 'Show', strain %></td>
-        <td><%= link_to 'Edit', edit_strain_path(strain) %></td>
-        <td><%= link_to 'Destroy', strain, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Contigs', strain_contigs_path(strain), class: "btn btn-default" %></td>
+        <td><%= link_to 'Edit', edit_strain_path(strain), class: "btn btn-default"  %></td>
+        <td><%= link_to 'Destroy', strain, class: "btn btn-default" , method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
