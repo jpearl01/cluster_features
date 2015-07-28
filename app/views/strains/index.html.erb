@@ -22,6 +22,7 @@
         <td><%= strain.contig_num %></td>
         <td><%= strain.genus %></td>
         <td><%= strain.species %></td>
+        <td><%= link_to 'All Features', strain_contigs_path(strain), class: "btn btn-default" %></td>
         <td><%= link_to 'Contigs', strain_contigs_path(strain), class: "btn btn-default" %></td>
         <td><%= link_to 'Edit', edit_strain_path(strain), class: "btn btn-default"  %></td>
         <td><%= link_to 'Destroy', strain, class: "btn btn-default" , method: :delete, data: { confirm: 'Are you sure?' } %></td>
