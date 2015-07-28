@@ -48,3 +48,6 @@ gem 'capistrano', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+#Lets try and get a javascript runtime
+gem 'execjs'
