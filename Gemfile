@@ -51,3 +51,4 @@ gem 'capistrano', group: :development
 
 #Lets try and get a javascript runtime
 gem 'execjs'
+gem 'therubyracer'
