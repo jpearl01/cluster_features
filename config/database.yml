@@ -36,7 +36,7 @@ production:
   encoding: utf8
   database: cluster_features_production
   pool: 5
-  username: josh
-  password: 'first class mail'
+  username: ror
+  password: 'cluster123!'
   socket: /var/lib/mysql/mysql.sock
   reconnect: true
